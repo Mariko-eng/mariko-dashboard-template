@@ -38,17 +38,46 @@
         }
 
         .sidebar-options {
-            overflow-y: auto;
             /* Added overflow-y property */
-            flex: 1;
+            overflow-y: auto;
             /* Take remaining space */
-            padding-top: 10px;
+            flex: 1;
             /* Added padding */
+            padding-top: 10px;
         }
+
+        .option-menu {
+            margin-top: 10px;
+            background-color: #F6F6F6;
+            cursor: pointer;
+            display: flex;                /* Use flexbox layout */
+            flex-direction: column;
+            justify-content: start;      /* Center contents horizontally */
+            align-items: center;
+        }
+
+        .option-menu-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .option-sub-menu {
+            display: none;
+        }
+
+        .option-sub-menu.show {
+            display: block;
+            padding-left: 20px;
+            background-color: #F6F6F6;
+            cursor: pointer;
+        }
+
 
         .option {
             margin-top: 10px;
-            height: 60px;
+            height: 40px;
             background-color: #F6F6F6;
             display: flex;
             align-items: center;
@@ -160,6 +189,26 @@
                 Brand
             </div>
             <div class="sidebar-options">
+                <div class="option-menu">
+                    <div class="option-menu-title">
+                        <span class="option-icon">#</span>
+                        Option 0
+                    </div>
+                    <div class="option-sub-menu">
+                        <p>
+                            <span class="option-icon">.</span>
+                            Sub 0 - 1
+                        </p>
+                        <p>
+                            <span class="option-icon">.</span>
+                            Sub 0 - 2
+                        </p>
+                        <p>
+                            <span class="option-icon">.</span>
+                            Sub 0 - 3
+                        </p>
+                    </div>
+                </div>
                 <div class="option">
                     <span class="option-icon">#</span>
                     Option 1
@@ -303,22 +352,18 @@
     </script>
 
     <script>
+        var optionMenuTitles = document.getElementsByClassName("option-menu-title");
 
-        var sidebarOptions = document.getElementsByClassName("option");
+        for (var i = 0; i < optionMenuTitles.length; i++) {
+            optionMenuTitles[i].addEventListener('click', function(event) {
+                var nextElement = this.nextElementSibling;
+                // console.log(nextElement); // Logs the next element after option-menu-title
 
-        // console.log(sidebarOptions);
-
-        for (var i = 0; i < sidebarOptions.length; i++) {
-
-            sidebarOptions[i].addEventListener('click', (event) => {
-                console.log(this)
-
-                // console.log(event.target);
+                nextElement.classList.toggle("show")
             });
         }
-
-
     </script>
+
 </body>
 
 </html>
