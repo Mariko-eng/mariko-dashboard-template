@@ -1,0 +1,324 @@
+<html>
+
+<head>
+    <style>
+        * {
+            /* Ensure padding doesn't affect total width */
+            box-sizing: border-box;
+            color: #1E2124;
+            font-family: sans-serif;
+        }
+
+        .sidebar {
+            width: 200px;
+            /* Increased width to accommodate padding */
+            height: 100vh;
+            background-color: whitesmoke;
+            position: fixed;
+            border-right: 1px solid #F6F6F6;
+            padding-left: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            /* Hide any overflow */
+        }
+
+        .sidebar-brand {
+            width: 100%;
+            height: 50px;
+            color: blue;
+            padding: 0px;
+            background-color: #FFFFFF;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            /* text-align: center; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar-options {
+            overflow-y: auto;
+            /* Added overflow-y property */
+            flex: 1;
+            /* Take remaining space */
+            padding-top: 10px;
+            /* Added padding */
+        }
+
+        .option {
+            margin-top: 10px;
+            height: 60px;
+            background-color: #F6F6F6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .option-icon {
+            width: 30px;
+        }
+
+        .sidebar-footer {
+            height: auto;
+            color: blue;
+            background-color: #FFFFFF;
+            padding: 10px;
+            /* Added padding */
+        }
+
+        .main {
+            min-height: 100vh;
+            background-color: #EDF5FB;
+        }
+
+        .main-appbar {
+            width: 100%;
+            height: 50px;
+            color: blue;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid F6F6F6;
+            padding: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .appbar-actions {
+            padding-left: 5px;
+            padding-right: 5px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dropdown {
+            float: right;
+            position: relative;
+            display: inline;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: whitesmoke;
+            min-width: 160px;
+            padding: 10px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            right: 0px;
+            z-index: 1;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-option {
+            margin-top: 5px;
+            height: 20px;
+            background-color: #F6F6F6;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            cursor: pointer;
+        }
+
+        .section {
+            padding: 25px;
+        }
+
+        .content {
+            display: flex;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .content-main {
+            flex: 2;
+            height: 200px;
+            padding: 10px;
+            margin-right: 10px;
+            background-color: #FFFFFF;
+        }
+
+        .content-sub {
+            flex: 1;
+            height: 200px;
+            padding: 10px;
+            background-color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body style="margin: 0 auto; padding: 0;">
+    <div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-brand" id="brand">
+                Brand
+            </div>
+            <div class="sidebar-options">
+                <div class="option">
+                    <span class="option-icon">#</span>
+                    Option 1
+                </div>
+                <div class="option">
+                    <span class="option-icon">#</span>
+                    Option 2
+                </div>
+                <div class="option">
+                    <span class="option-icon">#</span>
+                    Option 3
+                </div>
+                <div class="option">
+                    <span class="option-icon">#</span>
+                    Option 4
+                </div>
+                <div class="option">
+                    <span class="option-icon">#</span>
+                    Option 5
+                </div>
+                <div class="option">
+                    <span class="option-icon">#</span>
+                    Option 5
+                </div>
+            </div>
+            <div class="sidebar-footer" id="sidebar-footer">
+                <div class="option">
+                    <span class="option-icon">#</span>
+                    Help
+                </div>
+                <div class="option">
+                    <span class="option-icon">#</span>
+                    Logout
+                </div>
+                <div class="option" style="background-color: #FFFFFF;">
+                   <span>&#169;</span> 2024
+                </div>
+            </div>
+        </div>
+        <div class="main" id="main">
+            <div class="main-appbar" id="appbar">
+                <div style="padding-right: 10px;">
+                    yiga mark gabriel
+                </div>
+                <div class="appbar-actions">
+                    <div class="dropdown">
+                        <div id="dropdownButton">Dropdown</div>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <div class="dropdown-option">
+                                <span class="option-icon">#</span>
+                                Option 1
+                            </div>
+                            <div class="dropdown-option">
+                                <span class="option-icon">#</span>
+                                Option 2
+                            </div>
+                            <div class="dropdown-option">
+                                <span class="option-icon">#</span>
+                                Settings
+                            </div>
+                            <div class="dropdown-option">
+                                <span class="option-icon">#</span>
+                                Logout
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-left: 5px;">Action</div>
+                </div>
+            </div>
+
+            <div class="section">
+
+                <div style="height: 50px; background-color: #243858; border-radius: 10px; color: white; display: flex; align-items: center; justify-content: center;">
+                    Welcome To Mariko Dashboard folks, designed with html, css and javascript!
+                </div>
+
+                <div class="content">
+                    <div class="content-main">
+                        Content 1
+                    </div>
+                    <div class="content-sub">
+                        Content 2
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="content-main">
+                        Content 1
+                    </div>
+                    <div class="content-sub">
+                        Content 2
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var sidebar = document.getElementById("sidebar");
+        var appbar = document.getElementById("appbar");
+        var main = document.getElementById("main");
+
+        // console.log(main)
+
+        // main.classList.remove("main")
+        main.style.marginLeft = "200px";
+
+        var brand = document.getElementById("brand");
+
+        brand.addEventListener('click', (event) => {
+            sidebar.style.display = "none";
+            main.style.marginLeft = "0px";
+        })
+
+        appbar.addEventListener('click', (event) => {
+            sidebar.style.display = "flex";
+            main.style.marginLeft = "200px";
+        })
+
+    </script>
+
+    <script>
+        // Get references to the button and dropdown menu
+        const dropdownButton = document.getElementById("dropdownButton");
+        const dropdownMenu = document.getElementById("dropdownMenu");
+
+        // Add event listener to the button to toggle the dropdown menu
+        dropdownButton.addEventListener('click', () => {
+            dropdownMenu.classList.toggle("show");
+        });
+
+        // Close the dropdown menu when clicking outside of it
+        document.addEventListener('click', (event) => {
+            if (!dropdownButton.contains(event.target)) {
+                dropdownMenu.classList.remove("show");
+            }
+        });
+
+
+    </script>
+
+    <script>
+
+        var sidebarOptions = document.getElementsByClassName("option");
+
+        // console.log(sidebarOptions);
+
+        for (var i = 0; i < sidebarOptions.length; i++) {
+
+            sidebarOptions[i].addEventListener('click', (event) => {
+                console.log(this)
+
+                // console.log(event.target);
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>
